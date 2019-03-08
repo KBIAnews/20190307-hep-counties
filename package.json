@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "prettier": "^1.16.4",
+    "prettify": "^0.1.7",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "react-simple-maps": "^0.12.1",
+    "sheetsy": "^2.1.5"
   },
   "scripts": {
     "start": "react-scripts start",
