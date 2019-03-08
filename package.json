@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "d3-scale": "^2.2.2",
     "prettier": "^1.16.4",
     "prettify": "^0.1.7",
     "react": "^16.8.4",

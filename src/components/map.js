@@ -6,6 +6,7 @@ import {
 } from "react-simple-maps";
 import React from "react";
 import { GoogleSheetsContext } from "./GoogleSheetsContext";
+import { scaleLinear } from "d3-scale";
 
 export class HepChloropleth extends React.Component {
   constructor(props) {
@@ -16,7 +17,29 @@ export class HepChloropleth extends React.Component {
   static contextType = GoogleSheetsContext;
 
   getCountyFillColor(countyName) {
-    console.log(countyName);
+    let data = this.context.rawSheetsData.data.rows.map(row => ({
+      countyName: row.countyname,
+      cases: parseInt(row.cases)
+    }));
+
+    let relevant = data.filter(row => {
+      return row.countyName.includes(countyName);
+    });
+    if (relevant.length > 0) {
+      let domain = [
+        data.reduce((min, p) => (p.cases < min ? p.cases : min), data[0].cases),
+        data.reduce((max, p) => (p.cases > max ? p.cases : max), data[0].cases)
+      ];
+      let scale = scaleLinear()
+        .domain(domain)
+        .range(["#e6a199", "#D8472B"]);
+      let totalCountyCases = relevant.reduce(
+        (total, row) => total + row.cases,
+        0
+      );
+      return scale(totalCountyCases);
+    }
+
     return "#fafafa";
   }
 
