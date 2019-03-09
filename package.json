@@ -2,6 +2,7 @@
   "name": "20190307-hep-counties",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://apps.kbia.fm/20190307-hep-counties",
   "dependencies": {
     "d3-scale": "^2.2.2",
     "prettier": "^1.16.4",
@@ -10,6 +11,7 @@
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.8",
     "react-simple-maps": "^0.12.1",
+    "react-tooltip": "^3.10.0",
     "sheetsy": "^2.1.5"
   },
   "scripts": {

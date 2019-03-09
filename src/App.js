@@ -22,33 +22,12 @@ class App extends Component {
             {context =>
               !context.pageMustSuspend && (
                 <>
-                  <h1>The Headline For This Locator Map</h1>
-                  <h2>
-                    <strong>
-                      <a href="https://github.com/nprapps/dailygraphics#creating-locator-maps">
-                        Configure this map for your project.
-                      </a>
-                    </strong>{" "}
-                    Meanwhile, this is default text in the copytext spreadsheet
-                    for this graphic.{" "}
-                    <a href="https://docs.google.com/spreadsheets/d/1ICqV9QxH114EOWT_obc8tYzzm2h0sA2EmxPuGkSAGFk/edit">
-                      Edit this spreadsheet
-                    </a>{" "}
-                    (created when you added the graphic) to update the data and
-                    text. Delete any rows you don&#8217;t need, and add others
-                    as needed. Don&#8217;t forget to{" "}
-                    <code>fab update_copy:hep-a-cases-20190306</code> to update
-                    the text or visit{" "}
-                    <a
-                      href="http://127.0.0.1:8000/graphics/hep-a-cases-20190306/?refresh=1"
-                      target="_top"
-                    >
-                      <code>
-                        http://127.0.0.1:8000/graphics/hep-a-cases-20190306/?refresh=1
-                      </code>
-                    </a>{" "}
-                    to refresh the data every time you reload the page!
-                  </h2>
+                  <h1>{context.getLabel("headline")}</h1>
+                  <h2
+                    dangerouslySetInnerHTML={{
+                      __html: context.getLabel("subhed")
+                    }}
+                  />
 
                   <div id="locator-map" className="graphic">
                     <HepChloropleth />
@@ -58,7 +37,7 @@ class App extends Component {
                     <p>Credit: Nathan Lawrence / KBIA</p>
                     <p>
                       Data Source: Missouri Department of Health and Senior
-                      Services
+                      Services — March 4, 2019 Report
                     </p>
                   </div>
                 </>
